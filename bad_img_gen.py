@@ -69,5 +69,5 @@ def load_img():
 	return media_object
 
 
-anvil.server.connect("RTD46GVPNQKEBR7L5RCXWEGS-7HB75FUU6UQWZJWZ")
+anvil.server.connect("")
 anvil.server.wait_forever()
