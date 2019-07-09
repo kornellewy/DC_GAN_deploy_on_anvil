@@ -24,38 +24,7 @@ from discriminator_model import Discriminator
 import anvil.server
 import anvil.media
 
-path = Path("C:/Users/KORNEL/Dropbox/iloraz_inteligecji/anvil/app_menager/datafile.txt")
 
-ilosc_otowrzen =0
-
-def read_data():
-	global ilosc_otowrzen
-	data = []
-	with open(path, "r") as file:
-		l_list =[]
-		for line in file:
-			l_list = line.split(',')
-			l_list[2] = int(l_list[2])
-			global ilosc_otowrzen
-			ilosc_otowrzen = l_list[2]
-			l_list[3] = bool(l_list[3])
-			data.append(l_list)
-	print(data)
-	return 
-
-@anvil.server.callable
-def open_page():
-	read_data()
-	global ilosc_otowrzen
-	ilosc_otowrzen = ilosc_otowrzen + 1
-	
-@anvil.server.callable
-def save_data():
-    # - nazwa, - link, - ilosc_otowrzen, - online ? 
-    global ilosc_otowrzen
-    data = ["bad_img_gen", "https://alive-stark-monitor-lizard.anvil.app", str(ilosc_otowrzen), str(True)]
-    with open(path, "a") as file:
-        file.write("\n".join(data))
 
 
 # Spatial size of training images. All images will be resized to this
